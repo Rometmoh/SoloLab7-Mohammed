@@ -1,3 +1,12 @@
+/**
+ * Project: Solo Lab7
+ * Purpose Details: Create a Unicorn Game
+ * Course: IST 242
+ * Author: Fatima Mohammed
+ * Date Developed: 4/27/2025
+ * Last Date Changed: 4/27/2025
+ * Rev: 1.0
+ */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -34,7 +43,7 @@ public class GamePlay extends JFrame implements KeyListener {
     private Clip jumpSound, collectSound, deathSound;
     private javax.swing.Timer gameTimer, clockTimer;
 
-    // PowerUp class to track type (gold/purple)
+    // PowerUp tracking (gold/purple diamonds )
     private class PowerUp extends Rectangle {
         boolean isGold;
         PowerUp(int x, int y, boolean isGold) {
@@ -53,7 +62,7 @@ public class GamePlay extends JFrame implements KeyListener {
         setupUI();
         startGame();
     }
-
+// images of charaters, diamonds, and obstacles is called as well as the sounds used throughout the game
     private void loadAssets() {
         try {
             playerImg = ImageIO.read(new File("UnicornPic.png"));
@@ -89,7 +98,7 @@ public class GamePlay extends JFrame implements KeyListener {
     }
 
     private void startGame() {
-        // Game loop timer (60fps)
+        // Game loop timer (7fps)
         gameTimer = new javax.swing.Timer(16, e -> {
             if (!isGameOver) {
                 updateGame();
@@ -114,7 +123,7 @@ public class GamePlay extends JFrame implements KeyListener {
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
         // Draw ground
-        g.setColor(new Color(244, 195, 255));
+        g.setColor(new Color(196, 200, 196));
         g.fillRect(0, HEIGHT - 50, WIDTH, 50);
 
         // Draw stars
